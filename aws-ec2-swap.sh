@@ -54,7 +54,7 @@ while getopts fs:h opt; do
     esac
 done
 
-[[ -z $size ]] && usgae
+[[ -z $size ]] && usage
 
 SWAP_FILE=/var/swap.1
 
