@@ -74,6 +74,10 @@ echo "formating swap file"
 echo "enabling swap file"
 /sbin/swapon "$SWAP_FILE"
 
+echo "adding swap file to fstab"
+sed -i "/$(basename "$SWAP_FILE")/d" /etc/fstab
+echo "$SWAP_FILE none        swap    sw              0   0" >> /etc/fstab
+
 /sbin/swapon -s
 
 echo "done"
