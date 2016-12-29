@@ -64,9 +64,18 @@ if swap_file_is_exist; then
     fi
 fi
 
+echo "creating swap file"
 /bin/dd if=/dev/zero of="$SWAP_FILE" bs=1M count=$size
 /bin/chmod 600 "$SWAP_FILE"
+
+echo "formating swap file"
 /sbin/mkswap "$SWAP_FILE"
+
+echo "enabling swap file"
 /sbin/swapon "$SWAP_FILE"
+
+/sbin/swapon -s
+
+echo "done"
 
 exit
