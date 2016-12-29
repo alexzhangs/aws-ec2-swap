@@ -1,14 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
 
-# Exit on any error
-set -o pipefail -e
-
-# Debug
-if [[ $DEBUG -gt 0 ]]; then
-    set -x
-else
-    set +x
-fi
+[[ $DEBUG -gt 0 ]] && set -x || set +x
 
 
 function usage () {
